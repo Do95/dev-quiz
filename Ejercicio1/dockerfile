@@ -1,0 +1,11 @@
+#Descarga de imagen de alpine
+FROM alpine
+#Actulizacion de base datos de alpine e instalacion de nginx
+RUN apk update && apk upgrade && apk add nginx
+RUN mkdir -p /run/nginx
+#Mover la configuracion de nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+#Mover archivo html que queremos mostrar 
+COPY index.html /usr/share/nginx/html/
+#Levantar el servidor de nginxcd 
+CMD nginx -g "daemon off;"
