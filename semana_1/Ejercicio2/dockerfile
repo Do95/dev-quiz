@@ -1,0 +1,13 @@
+FROM node:10
+# instalar un servidor http para servir el proyecto
+RUN npm install -g http-server
+# copiar 'package.json' y 'package-lock.json'
+COPY package*.json ./
+# instalar dependencias del proyecto
+RUN npm install -f
+# copiar los archivos y carpetas del proyecto 
+COPY . .
+# construir aplicación para producción minificada
+RUN npm run build
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
