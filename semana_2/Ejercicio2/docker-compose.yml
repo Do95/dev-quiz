@@ -8,7 +8,4 @@ services:
       - '8081:8080'
     volumes: 
       - .:/usr/src/app
-      - /usr/app/node_modules
-    #command: npm install npm run dev
-    
     command: npx nodemon index.js

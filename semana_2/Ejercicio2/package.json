@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "express": "^4.17.1",
     "parsleyjs": "^2.9.2",
     "sweetalert": "^2.1.2"
