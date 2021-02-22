@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+    <body>
+        <script>
+            const BuscarPalindromoMasLargo = function(cadena) {
+                var longitud = cadena.length;
+                var palindromo = "";
+                var aux = 0;
+            
+                if (longitud < 1){
+                   return cadena
+                }else{
+                    for(var i = 0; i <= longitud; i++ ){
+                        for(var j = i ; j <= longitud; j++ ){
+                            var max_long = j - i;
+                            var string_prueba = cadena.slice(i, max_long);
+                            if(max_long > aux && EsPalindromo(string_prueba)){
+                                aux = max_long;
+                                palindromo = string_prueba;
+                            }
+                        }
+                    }
+                    return palindromo
+                }
+            };
+
+            const EsPalindromo = function(text) {
+                var arrayString = text.split("");
+                var StringInv = arrayString.reverse().join("");
+                return text.toUpperCase() === StringInv.toUpperCase();
+            }
+
+            const tests = ["babad","cbbd","ac","a"]
+            tests.forEach(function(v,k){
+                console.log("------Test " + (k+1) +"-------")
+                console.log("Entrada:",v)
+                console.log("Salida:",BuscarPalindromoMasLargo(v))
+            });
+        </script>
+    </body>
+</html>
