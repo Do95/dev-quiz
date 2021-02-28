@@ -19,9 +19,15 @@
                     for(var i = 0; i <= longitud; i++ ){
                         for(var j = i ; j <= longitud; j++ ){
                             var max_long = j - i;
+                            console.log("j",j)
+                            console.log("i",i)
+                            console.log('max',max_long)
                             var string_prueba = cadena.slice(i, max_long);
+                            console.log(string_prueba)
                             if(max_long > aux && EsPalindromo(string_prueba)){
+                                console.log("antes:",max_long, aux)
                                 aux = max_long;
+                                console.log("despues:",max_long, aux)
                                 palindromo = string_prueba;
                             }
                         }
